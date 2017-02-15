@@ -17,7 +17,29 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
+//    @Bean
+//    public Exchange exchange() {
+//        return ExchangeBuilder.fanoutExchange("Complaints").build();
+//    }
+//
+//    @Bean
+//    public Queue queue() {
+//        return QueueBuilder.durable("Complaints").build();
+//    }
+//
+//    @Bean
+//    public Binding binding() {
+//        return BindingBuilder.bind(queue()).to(exchange()).with("*").noargs();
+//    }
+//
+//    @Autowired
+//    public void configure(AmqpAdmin admin) {
+//        admin.declareExchange(exchange());
+//        admin.declareQueue(queue());
+//        admin.declareBinding(binding());
+//    }
 
+    @RequestMapping("/complaints")
 	@RestController
 	public static class ComplaintAPI{
 
