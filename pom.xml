@@ -29,5 +29,6 @@
         <module>spring-boot-resteasy-parent</module>
 		<module>spring-boot-resteasy</module>
 		<module>demo</module>
+		<module>documentation</module>
 	</modules>
 </project>
