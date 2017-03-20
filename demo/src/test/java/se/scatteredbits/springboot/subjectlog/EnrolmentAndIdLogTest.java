@@ -12,13 +12,13 @@ import java.util.UUID;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class SubjectLogTest {
+public class EnrolmentAndIdLogTest {
 
-    private FixtureConfiguration<SubjectLog> testFixture;
+    private FixtureConfiguration<EnrolmentAndIdLog> testFixture;
 
     @Before
     public void setUp() throws Exception {
-        testFixture = new AggregateTestFixture<>(SubjectLog.class);
+        testFixture = new AggregateTestFixture<>(EnrolmentAndIdLog.class);
 
 //        testFixture.registerAnnotatedCommandHandler(
 //                new BankAccountCommandHandler(testFixture.getRepository(), testFixture.getEventBus()));
@@ -32,6 +32,7 @@ public class SubjectLogTest {
         testFixture.givenNoPriorActivity()
                 .when(new EnrollSubjectCommand(id))
                 .expectEvents(new SubjectEnrolledEvent(id));
+
 
     }
 

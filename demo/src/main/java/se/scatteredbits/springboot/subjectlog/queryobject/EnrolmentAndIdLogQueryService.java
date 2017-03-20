@@ -6,13 +6,13 @@ import org.springframework.stereotype.Service;
 import se.scatteredbits.springboot.subjectlog.SubjectEnrolledEvent;
 
 @Service
-public class SubjectLogQueryService {
+public class EnrolmentAndIdLogQueryService {
 
     @Autowired
-    private SubjectLogQueryObjectRepository repo;
+    private EnrolmentAndIdLogQueryObjectRepository repo;
 
     @EventSourcingHandler
     public void create(SubjectEnrolledEvent ev){
-        repo.save(new SubjectLogQueryObject(ev.getId()));
+        repo.save(new EnrolmentAndIdLogQueryObject(ev.getId()));
     }
 }

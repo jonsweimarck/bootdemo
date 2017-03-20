@@ -16,13 +16,13 @@ import static junit.framework.TestCase.assertNotNull;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class SubjectLogQueryObjectTest {
+public class EnrolmentAndIdLogQueryObjectTest {
 
     @Autowired private CommandBus commandBus;
-    @Autowired private SubjectLogQueryObjectRepository repo;
+    @Autowired private EnrolmentAndIdLogQueryObjectRepository repo;
 
     @Test
-    public void enrolledSubjectCanBeFethedAsQueryObject(){
+    public void enrolledSubjectCanBeFetchedAsQueryObject(){
         String id = UUID.randomUUID().toString();
         CommandMessage<EnrollSubjectCommand> cmdMess
                 = GenericCommandMessage.asCommandMessage(new EnrollSubjectCommand(id));

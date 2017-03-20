@@ -6,24 +6,26 @@ import org.axonframework.spring.stereotype.Aggregate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import static org.axonframework.commandhandling.model.AggregateLifecycle.apply;
 
 @Aggregate
 @Entity
-public class SubjectLog {
+@Table(name = "EnrolmentAndIdLog")
+public class EnrolmentAndIdLog {
 
     @Id
     private String id;
 
 
     @CommandHandler
-    public SubjectLog(EnrollSubjectCommand cmd) {
+    public EnrolmentAndIdLog(EnrollSubjectCommand cmd) {
         apply(new SubjectEnrolledEvent(cmd.getId()));
     }
 
     @SuppressWarnings("unused")
-    private SubjectLog() {
+    private EnrolmentAndIdLog() {
     }
 
     @EventSourcingHandler
