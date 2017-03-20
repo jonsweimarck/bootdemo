@@ -4,13 +4,44 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-        <changeSet author="jons" id="jons-1">
+
+    <changeSet author="jons" id="jons-1">
+        <createTable tableName="DomainEventEntry">
+            <column autoIncrement="true" name="globalIndex" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="eventIdentifier" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="metaData" type="LONGBLOB"/>
+            <column name="payload" type="LONGBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payloadRevision" type="VARCHAR(255)"/>
+            <column name="payloadType" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="timeStamp" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="aggregateIdentifier" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sequenceNumber" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet author="jons" id="jons-2">
             <createTable tableName="EnrolmentAndIdLog">
                 <column name="id" type="VARCHAR(36)"><constraints primaryKey="true"/></column>
             </createTable>
         </changeSet>
 
-    <changeSet author="jons" id="jons-2">
+    <changeSet author="jons" id="jons-3">
         <createTable tableName="EnrolmentAndIdLogQueryObject">
             <column name="id" type="VARCHAR(36)"><constraints primaryKey="true"/></column>
         </createTable>
