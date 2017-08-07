@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="jons (generated)" id="1490047419383-1">
+        <createTable tableName="AssociationValueEntry">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="associationKey" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="associationValue" type="VARCHAR(255)"/>
+            <column name="sagaId" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sagaType" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-2">
+        <createTable tableName="ComplaintQueryObject">
+            <column name="complaintId" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company" type="VARCHAR(255)"/>
+            <column name="complaint" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-3">
+        <createTable tableName="DomainEventEntry">
+            <column autoIncrement="true" name="globalIndex" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="eventIdentifier" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="metaData" type="LONGBLOB"/>
+            <column name="payload" type="LONGBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payloadRevision" type="VARCHAR(255)"/>
+            <column name="payloadType" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="timeStamp" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="aggregateIdentifier" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sequenceNumber" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-4">
+        <createTable tableName="EnrolmentAndIdLog">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-5">
+        <createTable tableName="EnrolmentAndIdLogQueryObject">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-6">
+        <createTable tableName="SagaEntry">
+            <column name="sagaId" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revision" type="VARCHAR(255)"/>
+            <column name="sagaType" type="VARCHAR(255)"/>
+            <column name="serializedSaga" type="LONGBLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-7">
+        <createTable tableName="SnapshotEventEntry">
+            <column name="aggregateIdentifier" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sequenceNumber" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="eventIdentifier" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="metaData" type="LONGBLOB"/>
+            <column name="payload" type="LONGBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payloadRevision" type="VARCHAR(255)"/>
+            <column name="payloadType" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="timeStamp" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-8">
+        <createTable tableName="TokenEntry">
+            <column name="processorName" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="segment" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owner" type="VARCHAR(255)"/>
+            <column name="timestamp" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="token" type="LONGBLOB"/>
+            <column name="tokenType" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-9">
+        <addPrimaryKey columnNames="complaintId" constraintName="PRIMARY" tableName="ComplaintQueryObject"/>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-10">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="EnrolmentAndIdLog"/>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-11">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="EnrolmentAndIdLogQueryObject"/>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-12">
+        <addPrimaryKey columnNames="sagaId" constraintName="PRIMARY" tableName="SagaEntry"/>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-13">
+        <addPrimaryKey columnNames="aggregateIdentifier, sequenceNumber, type" constraintName="PRIMARY" tableName="SnapshotEventEntry"/>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-14">
+        <addPrimaryKey columnNames="processorName, segment" constraintName="PRIMARY" tableName="TokenEntry"/>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-15">
+        <addUniqueConstraint columnNames="eventIdentifier" constraintName="UK_k5lt6d2792amnloo7q91njp0v" tableName="DomainEventEntry"/>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-16">
+        <addUniqueConstraint columnNames="eventIdentifier" constraintName="UK_sg7xx45yh4ajlsjd8t0uygnjn" tableName="SnapshotEventEntry"/>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-17">
+        <addUniqueConstraint columnNames="aggregateIdentifier, sequenceNumber" constraintName="UKdg43ia27ypo1jovw2x64vbwv8" tableName="DomainEventEntry"/>
+    </changeSet>
+    <changeSet author="jons (generated)" id="1490047419383-18">
+        <createIndex indexName="IDX4056lb0rolits0rrkm49a22n" tableName="AssociationValueEntry">
+            <column name="sagaId"/>
+            <column name="associationKey"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>
